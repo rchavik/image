@@ -217,7 +217,11 @@ class ImageBehavior extends Behavior
 
         $basePath = $this->basePath();
         $pathinfo = pathinfo($fileName);
-        $fileName = md5_file($filePath) . '.' . $pathinfo['extension'];
+        $mimeContentType = mime_content_type($fileName);
+        $MimeTypes = new \Mimey\MimeTypes;
+        $extension = $MimeTypes->getExtension($mimeContentType);
+        $fileName = md5_file($filePath) . '.' . $extension;
+
         $fullPath = $basePath . DS . $fileName;
         $folder = new Folder($basePath, true, 0777);
         $transferFn = $copy || !is_uploaded_file($filePath) ? 'copy' : 'move_uploaded_file';

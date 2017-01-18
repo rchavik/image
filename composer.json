@@ -21,7 +21,8 @@
 		"php": ">=5.4",
 		"cakephp/plugin-installer": "*",
 		"intervention/image": "~2.0",
-		"cakephp/cakephp": "~3.0"
+		"cakephp/cakephp": "~3.0",
+		"ralouphie/mimey": "^1.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "*",
