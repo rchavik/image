@@ -268,7 +268,12 @@ class ImageBehavior extends Behavior
             return false;
         }
 
-        foreach ($this->config('presets') as $preset => $options) {
+        $presets = $this->config('presets');
+        if (empty($presets)) {
+           return true;
+        }
+
+        foreach ($presets as $preset => $options) {
             $destination = $basePath . $preset . '_' . $image->filename;
 
             if (!$force && file_exists($destination)) {
