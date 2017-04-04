@@ -217,7 +217,7 @@ class ImageBehavior extends Behavior
 
         $basePath = $this->basePath();
         $pathinfo = pathinfo($fileName);
-        $mimeContentType = mime_content_type($fileName);
+        $mimeContentType = mime_content_type($filePath);
         $MimeTypes = new \Mimey\MimeTypes;
         $extension = $MimeTypes->getExtension($mimeContentType);
         $fileName = md5_file($filePath) . '.' . $extension;
